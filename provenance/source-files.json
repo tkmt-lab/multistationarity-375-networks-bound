@@ -1,0 +1,82 @@
+{
+  "research_commit": "6d658ccfa1dd81d383aa808216ff051b73b9a21c",
+  "source_files": [
+    {
+      "source": "paper-R023-v1-en.tex",
+      "destination": "paper/paper-v1.tex",
+      "source_sha256": "496a62aa22c8106e4774e55568215140167f25e2966239dccfd438ec8c6b5374",
+      "adaptation": "public appendix paths and explicit pending companion DOI marker; scientific body unchanged"
+    },
+    {
+      "source": "paper-R023-v1-en.pdf",
+      "destination": "paper/paper-v1.pdf",
+      "source_sha256": "c8865c8edda87c60a8787a75d60ad2bd503ed1a15dc49c9d17904bd6e158f608",
+      "adaptation": "public appendix paths and explicit pending companion DOI marker; scientific body unchanged"
+    },
+    {
+      "source": "independent-1/rational_polynomials.py",
+      "destination": "checkers/rational_polynomials.py",
+      "source_sha256": "e5b5bd4f9b886ac2d8b550d5e064e426063459c7ecd142de2067b9a705f61777",
+      "adaptation": "none"
+    },
+    {
+      "source": "B/check_charts.py",
+      "destination": "checkers/cramer.py",
+      "source_sha256": "2a7984af856a6e970df34668945de64480a11495cfbe5005fc85426ca6850f51",
+      "adaptation": "public paths, bounded scope and callable checker; see PROVENANCE.md"
+    },
+    {
+      "source": "independent-B/sylvester_verifier.py",
+      "destination": "checkers/sylvester.py",
+      "source_sha256": "2d90da958d616c38c5c881da595b607e937a269459ac438c6ef74cc05b3e716c",
+      "adaptation": "public paths, bounded scope and callable checker; see PROVENANCE.md"
+    },
+    {
+      "source": "independent-B/structure_checker.py",
+      "destination": "checkers/structure.py",
+      "source_sha256": "14641958835f8231789b4c43a5ad9fc2d97ee87145a8773e4accc2183a7cf195",
+      "adaptation": "public paths, bounded scope and callable checker; see PROVENANCE.md"
+    },
+    {
+      "source": "independent-B/seven_reaction_checker.py",
+      "destination": "checkers/seven_reaction_z.py",
+      "source_sha256": "76b86ce9337286fd7ce88d43eec8f87576a26bbdb99cc67c8333bc8bfc348967",
+      "adaptation": "public paths, bounded scope and callable checker; see PROVENANCE.md"
+    },
+    {
+      "source": "B/elimination-full/rows.jsonl",
+      "source_sha256": "3a3cda42c260d71bf46f67aa9859a578da036ba8b877805c7658a485233fc298",
+      "adaptation": "selected certificate fields or helper; see PROVENANCE.md"
+    },
+    {
+      "source": "independent-B/all-resultants.json",
+      "source_sha256": "28b0bbd7cad58d7c97c17b29cfe09ec1e0da60a13eda788341b94ad3516aa610",
+      "adaptation": "selected certificate fields or helper; see PROVENANCE.md"
+    },
+    {
+      "source": "independent-B/exceptional-resultants.json",
+      "source_sha256": "3b002516780cdc07b79c3fd0d829d8953628d0968b083690edfe87552f668d11",
+      "adaptation": "selected certificate fields or helper; see PROVENANCE.md"
+    },
+    {
+      "source": "independent-B/structure-result.json",
+      "source_sha256": "712e3e6459932ba3040e6620ca073012e46cab0deb0b3cd7612a9185d1a92045",
+      "adaptation": "selected certificate fields or helper; see PROVENANCE.md"
+    },
+    {
+      "source": "B/extension/completion.json",
+      "source_sha256": "7c11d0e747f99cea8edf3f82b0c2709b3245b348dfdc89106762681114082544",
+      "adaptation": "selected certificate fields or helper; see PROVENANCE.md"
+    },
+    {
+      "source": "independent-B/seven-reaction-result.json",
+      "source_sha256": "adbffd394eb64aea04ea0f1058c9da7cf2213d7369793374cce38bdaba81ce6b",
+      "adaptation": "selected certificate fields or helper; see PROVENANCE.md"
+    },
+    {
+      "source": "independent-B/resultant_checker.py",
+      "source_sha256": "e9f8264ef2eac755e490b0ae0d981da8db3782be88e2cce614fddb6ed419d4fe",
+      "adaptation": "selected certificate fields or helper; see PROVENANCE.md"
+    }
+  ]
+}

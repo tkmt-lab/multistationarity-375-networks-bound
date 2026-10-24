@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "title": "A certified three-equilibrium bound for 375 fixed quadratic zero-one reaction networks",
+  "upstream": {
+    "authors": [
+      "Xiaoxian Tang",
+      "Jiandong Zhang"
+    ],
+    "paper": "https://arxiv.org/abs/2608.01116v1",
+    "repository": "https://github.com/zjdong-sudo/paper-multistability-results",
+    "revision": "323360df12c0787f9bbf7f223a6229b98233be39",
+    "path": "results/375_multistable_networks.json",
+    "sha256": "517d1f16f890159185f5384fa2ab089ec4d270e03efe31161ed29489121e252c",
+    "bytes": 395599,
+    "bundled": false,
+    "license_status": "not confirmed; no redistribution or relicensing",
+    "attribution": [
+      "375-network list",
+      "reported 373/2 stability classification",
+      "exceptional identifiers 33449 and 239089",
+      "Lemma 3 determinant criterion"
+    ]
+  },
+  "claims": [
+    {
+      "id": "B2",
+      "statement": "Each of the fixed 375 networks has at most three distinct positive equilibria for every strictly positive rate vector, including degenerate equilibria.",
+      "domain": {
+        "species": 3,
+        "reactions": 6,
+        "zero_one_complexes": true,
+        "reactant_molecularity_max": 2,
+        "stoichiometric_rank": 3,
+        "networks": "the exact pinned list, without a new enumeration claim"
+      },
+      "evidence_types": [
+        "exact-computation",
+        "historical-independent-implementation",
+        "prose"
+      ],
+      "certificates": [
+        "certificates/cramer.jsonl",
+        "certificates/resultants.json"
+      ],
+      "checkers": [
+        "checkers/cramer.py",
+        "checkers/sylvester.py"
+      ],
+      "expected": {
+        "network_count": 375,
+        "cramer_cubics": 272,
+        "cramer_quartics": 103,
+        "strict_denominator_witnesses": {
+          "D": 251,
+          "U": 100,
+          "V": 24
+        }
+      },
+      "argument": "Cramer reconstruction is injective along the retained coordinate at positive equilibria; removed factors cannot vanish there and residuals never specialize to zero. The second route uses unique positive fibers and a Descartes bound on nonzero retained factors."
+    },
+    {
+      "id": "B1",
+      "statement": "Within the fixed list, no inflow and an acyclic unimolecular net-production graph select exactly networks 33449 and 239089.",
+      "evidence_types": [
+        "exact-computation",
+        "finite-post-selected-observation"
+      ],
+      "certificates": [
+        "certificates/structure.json"
+      ],
+      "checkers": [
+        "checkers/structure.py"
+      ],
+      "selection_history": "Condition chosen after a 12-network pilot and inspection of eight networks without inflow.",
+      "limitation": "Not a predictive test, a general structural stability theorem, or a new discovery of the two exceptions."
+    },
+    {
+      "id": "B3-family",
+      "statement": "Network 33449 with added X3 -> 0 at positive rate h has at most three distinct positive equilibria and at most one exponentially stable positive equilibrium for all seven positive rates.",
+      "evidence_types": [
+        "exact-symbolic-identities",
+        "prose"
+      ],
+      "certificates": [
+        "certificates/seven-reaction-z.json"
+      ],
+      "checkers": [
+        "checkers/seven_reaction_t.py",
+        "checkers/seven_reaction_z.py"
+      ],
+      "argument": "The t reduction is a cubic with strictly negative leading coefficient. At an equilibrium det J=-y Qprime, so exponential stability requires a positive-slope root, of which a cubic with negative leading coefficient has at most one. The z chart supplies a second elimination identity.",
+      "limitation": "No nonlinear stability claim for degenerate or boundary points."
+    },
+    {
+      "id": "B3-witness",
+      "statement": "At the bundled rational rates, the seven-reaction family has exactly three simple positive equilibria; one is exponentially stable and two are unstable.",
+      "evidence_types": [
+        "exact-computation"
+      ],
+      "certificates": [
+        "certificates/seven-reaction-sample.json",
+        "certificates/seven-reaction-t.json",
+        "certificates/seven-reaction-z.json"
+      ],
+      "checkers": [
+        "checkers/seven_reaction_t.py",
+        "checkers/seven_reaction_z.py"
+      ],
+      "expected": {
+        "positive_equilibria": 3,
+        "exponentially_stable": 1,
+        "hurwitz_signs_in_t_order": [
+          [
+            1,
+            1,
+            -1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            -1,
+            1
+          ]
+        ]
+      },
+      "selection_history": "Six rates from a fixed earlier witness; h=1/65536 selected by the recorded dyadic ladder."
+    }
+  ],
+  "not_claimed": [
+    "original enumeration reverified",
+    "all 375 existence witnesses reverified",
+    "373-network stability classification reverified",
+    "B1 as a general theorem",
+    "nonlinear degenerate or boundary stability",
+    "global dynamics",
+    "priority",
+    "formal verification",
+    "human peer review",
+    "a new blind review during packaging"
+  ],
+  "pending_companion_citation": {
+    "marker": "A-DOI-PENDING",
+    "title": "Stability certificates for two exceptional reaction networks",
+    "version": "1.0.0",
+    "repository_name": "exception-networks-stability-certificates",
+    "doi": null
+  },
+  "publication_state": "local preparation only; no public repository, archive or DOI asserted"
+}

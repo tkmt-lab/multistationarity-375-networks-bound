@@ -1,0 +1,23 @@
+{
+  "pdf_pages": 7,
+  "pdf_bytes": 87815,
+  "pdf_sha256": "eb47078fe1ef3ae02b42c99d5db40ad68520724d452eb66d72f88a226c80bd64",
+  "source_sha256": "3879307068e14338bec3664c501336ffc64bf33a3ed6b21f1a765e4fef9b04c2",
+  "scientific_body_identical_before_Adata_bibliography": true,
+  "tectonic_version": "0.17.0",
+  "tex_warnings": [],
+  "rendered_pages_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "visual_issues": [],
+  "article_changes": [
+    "appendix paths",
+    "explicit pending A DOI marker"
+  ]
+}

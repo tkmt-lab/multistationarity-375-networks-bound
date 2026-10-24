@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "package_version": "1.0.0",
+  "scope": "All distributed files except this manifest; generated work and environments excluded.",
+  "files": [
+    {
+      "path": ".github/workflows/check.yml",
+      "bytes": 480,
+      "sha256": "92baa3d5f62e033b2d22549b5a8c228e8e9106f6475c65c19b88f739c88459c4"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 44,
+      "sha256": "ad057016573af48a5d412cd0033086a1f3d08876cfb7e594ff629e5611dba5e4"
+    },
+    {
+      "path": ".zenodo.json",
+      "bytes": 1425,
+      "sha256": "fb9d6923ba0ba94184d9f501d8ba6ec746609da9471cf7e1fc3e6ee017c6a3a8"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1514,
+      "sha256": "38787d2221c577ab1b7d1826fa44886d7a093aba991f238de54d980c60f0fb6c"
+    },
+    {
+      "path": "Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "CC-BY-4.0.txt",
+      "bytes": 18656,
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 1065,
+      "sha256": "17188d65443718b5354c4b8ecd10a16f148e17ea31ef7de13eb92f0a7b824d0d"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 798,
+      "sha256": "a20676b53f57ecb4f0d1c6f3764fdcf1407abeef5b9929991893a99da778678f"
+    },
+    {
+      "path": "PROVENANCE.md",
+      "bytes": 3771,
+      "sha256": "f6ccb2e40614810da9867b0e99e0d59f516e5b9e4d04e18d899d8dc8686960d7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7908,
+      "sha256": "9b64fe2eecc7c96ace1a608285ce8141a3377dc71054f92f9c86576975f36177"
+    },
+    {
+      "path": "VERIFICATION-RECORD.md",
+      "bytes": 2273,
+      "sha256": "b8d396b34d573c362304aea8e509c22410be63f9e3286c1015edb01f33acba7d"
+    },
+    {
+      "path": "certificates/cramer.jsonl",
+      "bytes": 330442,
+      "sha256": "a113d011b3a9eeaa858953abafbc5eb7b86482fe1236203b2f2ee89cbc2576e6"
+    },
+    {
+      "path": "certificates/resultants.json",
+      "bytes": 380108,
+      "sha256": "5acc1175489b2dbce43e035c31c109cbc8b1214a93ecc52baa5415aac8df6044"
+    },
+    {
+      "path": "certificates/seven-reaction-sample.json",
+      "bytes": 176,
+      "sha256": "ad4c5687f1133c6dec1c5a944d8ab8218095449a70397ac2858e495516dde666"
+    },
+    {
+      "path": "certificates/seven-reaction-t.json",
+      "bytes": 3295,
+      "sha256": "0b69d4edff77ce896a13435d610b6a45327154d4de17ff455eb93b3871ef793c"
+    },
+    {
+      "path": "certificates/seven-reaction-z.json",
+      "bytes": 13685,
+      "sha256": "2caf99d0e30440b0114d8232e6d196f82c56507d2d1ca01652b4c893230128b4"
+    },
+    {
+      "path": "certificates/structure.json",
+      "bytes": 63351,
+      "sha256": "c556865fd843760438cd7ac1d98b6a6695f004c32ce9d507ec2abeec6b99dd13"
+    },
+    {
+      "path": "checkers/common.py",
+      "bytes": 2258,
+      "sha256": "bc5f17f07582141c0c339688293b39ffd63223db54c8a15c705ed9a343da432e"
+    },
+    {
+      "path": "checkers/cramer.py",
+      "bytes": 7285,
+      "sha256": "305d1244a61e2ebb0c8ad83537ac1118354325df9971b7621c0e890090fdc2f1"
+    },
+    {
+      "path": "checkers/rational_polynomials.py",
+      "bytes": 3140,
+      "sha256": "e5b5bd4f9b886ac2d8b550d5e064e426063459c7ecd142de2067b9a705f61777"
+    },
+    {
+      "path": "checkers/seven_reaction_t.py",
+      "bytes": 4144,
+      "sha256": "4db83879caa699f84951eaf467621c81656fd6ec6be931deb0fed40ed6eeb95c"
+    },
+    {
+      "path": "checkers/seven_reaction_z.py",
+      "bytes": 7149,
+      "sha256": "4b41bf6b677a700b63b1258af701c7826a51b80a035cfa91cbda7b67e2e1f6b4"
+    },
+    {
+      "path": "checkers/structure.py",
+      "bytes": 2917,
+      "sha256": "c8f05b74670f30c7e1b690c9e392720ab274863fc72116b235e81fd0234ff973"
+    },
+    {
+      "path": "checkers/sylvester.py",
+      "bytes": 4147,
+      "sha256": "19218df34e0930fff20323e0fa70e904d5e5b3693bff3020aa1d8d27c7c56bbf"
+    },
+    {
+      "path": "checkers/symbolic_input.py",
+      "bytes": 658,
+      "sha256": "2adf339b38d2b50aceba00fc6b2a25c33ca5b29ac9f89c05301e980af0540fcd"
+    },
+    {
+      "path": "claims.json",
+      "bytes": 5579,
+      "sha256": "8eaba032c8fa7443340af47a133defa71403a87df2dea279e9a35291d01ad727"
+    },
+    {
+      "path": "paper/paper-v1.pdf",
+      "bytes": 87815,
+      "sha256": "eb47078fe1ef3ae02b42c99d5db40ad68520724d452eb66d72f88a226c80bd64"
+    },
+    {
+      "path": "paper/paper-v1.tex",
+      "bytes": 24695,
+      "sha256": "3879307068e14338bec3664c501336ffc64bf33a3ed6b21f1a765e4fef9b04c2"
+    },
+    {
+      "path": "provenance/paper-qa.json",
+      "bytes": 524,
+      "sha256": "be8cb161c0ee034d70459b244c2569fb3d2dd63f918ce1454bb80ae336ce0bcf"
+    },
+    {
+      "path": "provenance/source-files.json",
+      "bytes": 3766,
+      "sha256": "57501b9aeffaf45df18f02dcbaeb1f94ac6dca75372a0084dfe017bbffa473a4"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 28,
+      "sha256": "47fd19021144e071cc43b6e265aafada0056abe89724ad95bd6e3a8e37995b94"
+    },
+    {
+      "path": "tools/fetch_input.py",
+      "bytes": 1041,
+      "sha256": "728b1fb56bf3ff6e01d64e8c82a7e204a92be579914cd821db48f1a265e4d5db"
+    },
+    {
+      "path": "tools/update_manifest.py",
+      "bytes": 1124,
+      "sha256": "adce12f4658dd0fdf412debccb05016956bf27943c4af12f1abc313e34dd4ba3"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 7572,
+      "sha256": "6764f8eb472df7a67badc9561d6d7e784c3ce0f1f7a6a243b3d1840fc8b163e4"
+    }
+  ]
+}

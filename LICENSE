@@ -1,0 +1,15 @@
+Copyright 2026 Tatsuhiko Takimoto.
+
+Code (Python programs and .github/workflows/*.yml): Apache License 2.0.
+The full text is in Apache-2.0.txt.
+
+Original prose, derived numerical data and algebraic certificates (Markdown,
+TeX, PDF, JSON, CITATION.cff and metadata): Creative Commons Attribution 4.0
+International. The full text is in CC-BY-4.0.txt.
+
+These licenses do not relicense Tang and Zhang's papers, source code, or
+375_multistable_networks.json. Their raw input is not distributed here; its
+license has not been confirmed. The download tool obtains it directly from
+their pinned upstream repository into ignored work/input. Cited works remain
+subject to their respective rights. Reaction identifiers and the source of
+the fixed 375-network list are attributed in README.md and the article.

@@ -1,0 +1,548 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,array,tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{observation}[theorem]{Observation}
+\newcommand{\Rp}{\mathbb R_{>0}}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\dd}{\operatorname{diag}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\setlength{\emergencystretch}{1.5em}
+\title{A certified three-equilibrium bound for 375 fixed\protect\\
+quadratic zero-one reaction networks}
+\author{Tatsuhiko Takimoto}
+\date{24 October 2026 \quad Draft v1}
+\begin{document}
+\maketitle
+\begin{abstract}
+Consider the fixed list of 375 three-species, six-reaction networks
+published by Tang and Zhang. For each network in this list and every
+strictly positive choice of rate constants, we give a computer-assisted
+proof that there are at most three distinct positive equilibria,
+including degenerate equilibria. Network-specific elimination
+certificates yield 272 cubic and 103 quartic residual polynomials.
+The certificates exclude vanishing elimination denominators at positive
+equilibria and parameter specializations that would make the residual
+identically zero;
+the quartics have opposite signs at their leading and constant
+coefficients. An independently implemented resultant calculation
+and a separate Sylvester-determinant check agree for all 375 networks.
+Within this list, absence of inflow together with acyclicity of the
+unimolecular production graph selects precisely the two known
+exceptions to bistability; this is a post-selected finite observation.
+We also treat one seven-reaction extension, proving at most one
+exponentially stable positive equilibrium for all positive rates and
+certifying a rational example with three positive equilibria.
+The original enumeration and the stability classification of the
+other 373 networks are outside our independent certification.
+\end{abstract}
+
+\section{The finite question and its scope}
+Tang and Zhang~\cite{TZ} identify 375 quadratic zero-one networks
+admitting three positive equilibria, of which 373 admit bistability.
+The classification and the identification of the two exceptions,
+33449 and 239089, are theirs. Their Theorem~2 states the upper bound
+three; Section~5.1 gives an elimination argument for an example, while
+the Discussion asks for a theoretical explanation of the bound.
+We address the finite list they supplied, with the rate constants
+left arbitrary and positive. We are grateful for their classification
+and data, which make this question accessible.
+
+The contribution is a checked algebraic reduction for every member
+of that list, covering special positive parameter values as well as
+generic ones. We do not give a new enumeration of networks or a new
+general elimination method. Univariate reduction and the relation
+between the derivative of a reduced equation and the Jacobian
+determinant belong to established approaches, including
+Torres--Feliu~\cite{TF} and Banaji--Feliu~\cite{BF}.
+The latter's bounds for specified numbers of distinct reactants do
+not immediately give three for the present three-species,
+six-distinct-reactant inputs. Our assertion is a finite collection
+of all-parameter statements, rather than a test of 375 rate vectors.
+
+Let $Y,N\in\mathbb Z^{3\times6}$ be the reactant and stoichiometric
+matrices. Column $j$ describes the reaction from $Y_{\cdot j}$ to
+$Y_{\cdot j}+N_{\cdot j}$ with rate $\kappa_j>0$. The mass-action
+equations are
+\begin{equation}\label{eq:mass}
+ \dot x_i=F_i(x;\kappa)=\sum_{j=1}^6 N_{ij}\kappa_j
+                  \prod_{\ell=1}^3 x_\ell^{Y_{\ell j}}.
+\end{equation}
+Both complexes have entries zero or one, and every reactant has
+molecularity at most two. Here ``quadratic'' means at most two,
+not that every reaction is bimolecular. All 375 stoichiometric
+matrices $N$ have rank three. A positive equilibrium has $x\in\Rp^3$ and $F(x;\kappa)=0$;
+it is nondegenerate when $\det J_F\ne0$, and exponentially stable
+when all eigenvalues of $J_F$ have negative real part.
+
+Write $\cN$ for the 375 records in the fixed upstream file identified
+in Appendix~\ref{app:input}. Network numbers below are the upstream
+\texttt{candidate\_index}, not row numbers or matrix ranks.
+
+\begin{theorem}\label{thm:bound}
+For every network $G\in\cN$ and every $\kappa\in\Rp^6$, the
+mass-action system~\eqref{eq:mass} has at most three distinct
+positive equilibria. No nondegeneracy assumption is required.
+\end{theorem}
+
+Sections~\ref{sec:cert} and \ref{sec:independent} explain the two
+computational routes supporting this theorem. The structural
+observation and the seven-reaction proposition are separate results;
+neither is needed for the upper bound.
+
+\section{A univariate certificate for each network}\label{sec:cert}
+Fix a network and retain one concentration $t$, writing the other
+two as $u,v$. The equations are affine in each of $u,v$ separately,
+with possible terms $1,u,v,uv$. A recorded invertible integer row
+transformation $G=TF$ cancels $uv$ in two equations. When $uv$ is
+absent already, two suitable equations are selected directly.
+The certificates give
+\begin{equation}\label{eq:cramer}
+ A(t)\binom{u}{v}=b(t),\qquad
+ D(t)=\det A(t),\qquad
+ D(t)u=U(t),\quad D(t)v=V(t).
+\end{equation}
+All entries are polynomials in $t$ and the rate constants. The
+record includes $T$, its nonzero determinant, the coordinate order,
+$D,U,V$, and the third transformed equation $H$.
+
+\subsection{Excluding division by zero on the positive branch}
+In 251 networks, $D$ has nonzero coefficients of one strict sign.
+In the remaining networks this certificate holds for $U$ (100
+networks) or $V$ (24 networks). A nonzero polynomial whose nonzero
+coefficients have one sign cannot vanish when all its variables
+are positive.
+
+If a solution of~\eqref{eq:cramer} had $D=0$, the adjugate
+identities would give $U=V=0$. Thus a sign certificate for either
+numerator also excludes $D=0$ at every positive equilibrium.
+This step covers special positive rate choices; it is not merely
+division in a field of rational functions. Every positive equilibrium
+therefore satisfies
+\[
+ u=U/D,\qquad v=V/D,
+\]
+so its retained coordinate $t$ determines it uniquely.
+
+Substitution in $H$ gives the polynomial
+\begin{equation}\label{eq:residual}
+ P(t)=D(t)^2 H\bigl(U(t)/D(t),V(t)/D(t),t\bigr)
+      =c L(t)Q(t),\qquad c\in\mathbb Q\setminus\{0\}.
+\end{equation}
+Every removed factor in $L$ either has coefficients of one strict
+sign or divides $D$. Such factors are nonzero at a positive
+equilibrium. The records contain 706 strict-sign factor entries
+and 21 divisor-of-$D$ entries, with multiplicities recorded separately.
+No parameter factor that might vanish at positive rates is discarded
+without a nonvanishing argument.
+
+Consequently, positive equilibria inject into the positive roots of
+$Q$. Conversely, a root of $Q$ with
+\begin{equation}\label{eq:admissible}
+ t>0,\qquad D(t)\ne0,\qquad U(t)/D(t)>0,\quad V(t)/D(t)>0
+\end{equation}
+gives a positive equilibrium: the first two transformed equations
+hold, $P=0$ gives $H=0$, and $T$ is invertible. Roots failing these
+conditions are not counted as positive equilibria.
+
+\subsection{Root bounds that survive specialization}
+The finite checks give the following two cases.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}rYY@{}}
+\toprule
+Networks & Residual certificate & Consequence at every positive rate vector\\
+\midrule
+272 & Degree at most three; at least one coefficient has a strict
+sign & $Q$ is nonzero and has at most three positive roots.\\
+103 & Degree four; leading coefficient strictly negative and
+constant coefficient strictly positive & At least one negative
+real root, hence at most three positive roots.\\
+\bottomrule
+\end{tabularx}
+\caption{Root bounds from the Cramer certificates. Roots are bounded
+even with multiplicity; the theorem counts distinct equilibria.}
+\label{tab:degrees}
+\end{table}
+
+For a quartic, $Q(0)>0$ and $Q(t)\to-\infty$ as $t\to-\infty$,
+so the negative root follows by continuity. For a cubic certificate,
+a leading coefficient can vanish at particular positive rates,
+but that only lowers the degree. A recorded strict-sign coefficient
+prevents the entire polynomial from becoming zero. Thus the
+argument includes degree drops and degenerate equilibria.
+
+\begin{proof}[Proof of Theorem~\ref{thm:bound}]
+For each of the 375 inputs, exact polynomial checks verify the
+transformation and Cramer identities, the denominator certificate,
+the factorization~\eqref{eq:residual}, the nonvanishing of removed
+factors at positive equilibria, and the appropriate row of
+Table~\ref{tab:degrees}. Equations~\eqref{eq:cramer}--\eqref{eq:residual}
+give an injection from positive equilibria to positive roots of
+a nonzero polynomial with at most three such roots. This proves
+the assertion for every positive rate vector of each input network.
+\end{proof}
+
+The finite calculations here are symbolic. A SymPy construction
+produces the certificates, and a separately written sparse-polynomial
+checker using rational arithmetic verifies them without importing
+SymPy. These two programs were written within one construction
+effort. The next section describes the independent verification.
+
+\section{Independent elimination and certificate checks}\label{sec:independent}
+An independent implementation starts again from the fixed $Y,N$
+matrices. It uses sequential elimination and resultants rather
+than the two-variable Cramer construction. For an ordered set of
+coordinates $u,v,w$, it writes a first equation as
+\[
+ F_u=-A(v,w)u+B(v,w),\qquad A(v,w)>0.
+\]
+It substitutes $u=B/A$ into the remaining equations and clears
+the positive denominator, obtaining $H(v,w),K(v,w)$.
+For the selected equation
+\[
+ H(v,w)=a(w)v^2+b(w)v+c(w),
+\]
+the coefficient certificates give $a\leq0$, $c\geq0$, with at
+least one inequality strict throughout the positive domain.
+If both are strict, the two roots have opposite signs. If $c=0$
+there is at most one positive root of the remaining linear factor;
+if $a=0$ the nonzero constant term prevents an identically zero
+linear equation. Hence, for fixed $w>0$, there is at most one
+positive $v$, and then at most one $u$.
+
+Every positive equilibrium supplies a root of
+$R(w)=\operatorname{Res}_v(H,K)$. Only factors certified nonzero
+on the positive domain are removed. Each retained factor has a coefficient whose nonzero monomial
+coefficients all share one strict sign. This coefficient cannot
+vanish at positive rates, so the surviving polynomial in $w$ is
+not identically zero at any positive rate specialization. The
+records store these tests as \texttt{coefficient\_signs} within
+\texttt{root\_factors}; Appendix~\ref{app:input} locates them. Descartes' rule is
+applied allowing every possible sign, including zero, for each
+coefficient not assigned a strict sign. The maximum possible
+number of sign changes bounds all positive roots, including
+multiple ones. Extra roots introduced by a resultant can only
+weaken this upper bound; the proved uniqueness of the positive
+fiber is what permits a bound on equilibria.
+
+This route covers 372 inputs directly. Three require an invertible
+integer change of equations before the same elimination steps:
+\begin{center}\small
+\begin{tabular}{@{}rlll@{}}
+\toprule
+Network & First equation & Eliminate; retain & Positive pivot $A$\\
+\midrule
+48328 & $F_1+F_3$ & $x_1,x_2$; $x_3$ & $2\kappa_5x_3$\\
+74814 & $F_1+F_3$ & $x_1,x_2$; $x_3$ & $\kappa_5x_3$\\
+100108 & $F_1+F_2$ & $x_1,x_3$; $x_2$ & $\kappa_6x_2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each transformation has determinant one. The result is again
+272 cubic and 103 quartic residuals, all with positive-root bound
+three. The retained coordinate differs from the Cramer route in
+79 inputs, while the degree and conclusion agree in every input.
+
+A second checker in this independent verification reconstructs
+the substituted equations directly from the original matrices.
+It expands each Sylvester determinant by permutation enumeration,
+with sizes at most $4\times4$, and verifies the factorization and
+coefficient-sign bounds. It calls neither the first checker's
+resultant/factorization functions nor its helper functions.
+The two independent-verification checkers still share SymPy's
+polynomial arithmetic; this is not a comparison of two unrelated
+computer-algebra systems.
+
+\section{A structural observation about the known exceptions}
+Call a reaction an \emph{inflow} when its reactant complex is zero.
+Define the unimolecular production graph on the three species:
+place $i\to j$, for $i\ne j$, when a reaction whose reactant is
+exactly $X_i$ produces $X_j$. This graph uses only unimolecular
+reactions, not the signs of the full Jacobian.
+
+\begin{observation}\label{obs:struct}
+Within $\cN$, the conjunction of no inflow and an acyclic
+unimolecular production graph selects exactly networks 33449
+and 239089.
+\end{observation}
+
+The direct census, independently checked by two cycle-detection
+procedures, is
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+ & Acyclic & Cyclic & Total\\
+\midrule
+Inflow present & 255 & 112 & 367\\
+No inflow & 2 & 6 & 8\\
+\bottomrule
+\end{tabular}
+\end{center}
+The condition was selected after a twelve-network pilot and
+inspection of the eight no-inflow networks. Its match within
+this list is therefore not an independent predictive test.
+Observation~\ref{obs:struct} is not a theorem that this graph
+condition determines stability for arbitrary reaction networks.
+In particular, the graph omits bimolecular reactions.
+
+For the two selected networks, a separate certificate collection
+\cite{Adata} gives complete positive-branch reductions: each has
+at most three distinct positive equilibria and at most one
+exponentially stable positive equilibrium at arbitrary positive
+rates. If three distinct positive equilibria exist, exactly one
+is exponentially stable. We recall these results briefly to
+identify the known exceptions. The collection is prepared for a
+separate data-and-tools release; its final DOI is not yet available.
+
+The determinant criterion of Tang--Zhang, Lemma~3~\cite{TZ},
+provides the stability implication for nondegenerate positive
+equilibria in full-rank three-species zero-one networks. That
+criterion is prior work. Neither the structural observation nor
+the bound in Theorem~\ref{thm:bound} is a new independent
+certification of the reported bistability classification of all
+373 remaining networks.
+
+\section{One seven-reaction family}\label{sec:seven}
+Add the reaction $X_3\xrightarrow{h}0$ to network 33449. With
+the six original rates denoted $a,b,c,d,e,f$, the equations are
+\begin{equation}\label{eq:seven}
+\begin{aligned}
+ \dot x&=-dx+by+az,\\
+ \dot y&=-by-cyz+exz,\\
+ \dot z&=-(a+h)z+by-cyz+fxy.
+\end{aligned}
+\end{equation}
+All seven rates are strictly positive. This remains a full-rank,
+three-species quadratic zero-one network.
+
+\begin{proposition}\label{prop:seven}
+For every $(a,b,c,d,e,f,h)\in\Rp^7$, system~\eqref{eq:seven}
+has at most three distinct positive equilibria and at most one
+exponentially stable positive equilibrium.
+\end{proposition}
+\begin{proof}
+Put $t=z/y$, $L(t)=ea t+eb-cd$, and $D(t)=tL(t)$.
+The first two equilibrium equations give the complete positive
+branch
+\begin{equation}\label{eq:branch7}
+ t>\max\{0,(cd-eb)/(ea)\},\qquad
+ x=\frac{b(b+at)}D,\quad y=\frac{bd}D,\quad z=\frac{bd}L.
+\end{equation}
+Indeed, the first equation gives $x=y(b+at)/d$, and substitution
+in the second gives $y=bd/(tL)$. Positivity excludes $tL=0$
+and is equivalent to the stated interval. On this branch the
+third equation is $bd Q_h(t)/D(t)^2$, where
+\begin{equation}\label{eq:q7}
+\begin{split}
+ Q_h(t)={}&-ea(a+h)t^3+[acd-h(eb-cd)]t^2\\
+          &+b(eb+fa-2cd)t+b^2f.
+\end{split}
+\end{equation}
+Its leading coefficient is strictly negative. Positive equilibria
+are therefore in one-to-one correspondence with its roots in
+the interval~\eqref{eq:branch7}, and there are at most three.
+
+The coordinate change $z=ty$ has determinant $y$. After this
+substitution, with $t$ fixed, the $(x,y)$ minor of the first two
+equations is $-yD$ along their zero set. Differentiating
+the third equation along the branch and evaluating at $Q_h=0$
+gives
+\begin{equation}\label{eq:det7}
+ \det J=-yQ_h'(t).
+\end{equation}
+Exponential stability in three dimensions requires $\det J<0$,
+so it requires $Q_h'>0$. The derivative is a downward-opening
+quadratic; the set on which it is positive is empty or an interval, and
+$Q_h$ is strictly increasing there. At most one root can lie in
+that interval. A root with $Q_h'=0$ has singular Jacobian and
+is not exponentially stable. This upper bound uses only a
+necessary stability condition, not the sufficient direction of
+Tang--Zhang's lemma.
+\end{proof}
+
+The independent derivation retains $z$ instead. With
+$E(z)=db+(dc-be)z$, the original equations give
+$ezF_1+dF_2=ae z^2-Ey$, so $E>0$ at every positive equilibrium.
+They yield
+\[
+ x=\frac{az(b+cz)}E,\quad y=\frac{ae z^2}E,\quad
+ P(z)=(a+h)E^2-aez(b-cz)E-a^2efz^2(b+cz).
+\]
+The remaining equation is $-zP/E^2$ and at an equilibrium
+$\det J=-zP'/E$. Since $P(0)=(a+h)d^2b^2>0$ and $\deg P\leq3$,
+there can be at most one positive root with $P'>0$: two upward
+crossings would require a downward crossing before the first
+and another between them, hence at least four distinct roots.
+This gives the same stability bound through a different coordinate.
+
+\subsection{An exact rational example}
+Take
+\begin{equation}\label{eq:rates}
+ (a,b,c,d,e,f,h)=
+ \left(\frac{109}{32768},\frac{235}{256},\frac12,\frac12,
+       \frac12,\frac12,\frac1{65536}\right).
+\end{equation}
+Here the admissible interval is $t>0$, and
+\[
+ Q_h(t)=-\frac{23871}{4294967296}t^3
+        +\frac{27797}{33554432}t^2
+        -\frac{606065}{16777216}t+\frac{55225}{131072}.
+\]
+Exact Sturm sequences isolate one simple root in each interval
+of Table~\ref{tab:roots}; the total number of admissible roots
+is three. Rational interval evaluation verifies positive
+concentrations and the displayed Hurwitz signs, both from
+the symbolic branch and directly from the original Jacobian.
+For $\det(\lambda I-J)=\lambda^3+b_1\lambda^2+b_2\lambda+b_3$,
+positivity of $b_1,b_2,b_3,b_1b_2-b_3$ proves exponential stability.
+If $b_3<0$, the characteristic polynomial has a positive real root.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}cllc@{}}
+\toprule
+Root & Rational lower endpoint & Rational upper endpoint &
+$(b_1,b_2,b_3,b_1b_2-b_3)$\\
+\midrule
+1 & $1186617748/63717463$ & $1307453375/70205938$ & $(+,+,-,+)$\\
+2 & $1998238606/38640527$ & $3149229703/60897580$ & $(+,+,+,+)$\\
+3 & $6820268592/86644919$ & $6713775719/85292030$ & $(+,+,-,+)$\\
+\bottomrule
+\end{tabular}
+\caption{Certified disjoint intervals in increasing $t$ order.
+Exactly the middle equilibrium is exponentially stable.}
+\label{tab:roots}
+\end{table}
+
+The independent $z$ intervals map to these roots in reverse order
+under $t=db/(ae z)+(dc-be)/(ae)$. The exact transformed intervals
+overlap in intervals containing one root each, and all four
+Hurwitz signs agree. Thus the comparison checks corresponding
+roots as well as their counts.
+
+Persistence of nondegenerate equilibria under a sufficiently
+small dependent reaction addition is consistent with the
+inheritance results of Banaji--Pantea~\cite{BP}. The network has
+full rank, so the added reaction vector is dependent on the
+original stoichiometric vectors. The family-specific assertion
+here is the upper bound for \emph{all} positive rates, together
+with the exact input~\eqref{eq:rates}. We make no claim of a new
+equivalence class or a classification of seven-reaction networks.
+
+\section{Verification boundary and limitations}\label{sec:scope}
+The independent implementation received the fixed upstream data,
+definitions and statements to test. Its derivations, code and
+results were fixed before comparison with the construction
+records. The anticipated conclusions were disclosed, so this was
+not a blind test of the hypotheses. The independent work used
+different elimination and a separate implementation; it shared
+the mathematical definitions, dataset and part of the SymPy
+arithmetic infrastructure. Roles, dates, hashes and execution
+records are in the companion \texttt{VERIFICATION-RECORD.md}.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{30mm}YY@{}}
+\toprule
+Claim & Mathematical bridge & Finite verification\\
+\midrule
+375-network bound & Nonvanishing denominator, injective
+projection, root bound & Cramer identities and signs;
+independent resultants and Sylvester expansions for every input\\
+Structural observation & Specified graph and finite domain &
+All 375 graphs checked; precisely two selected\\
+Seven-reaction bound & Complete positive branch and
+Jacobian/derivative identity & Independent symbolic identity checks\\
+Rational example & Sturm root counting and Hurwitz criterion &
+Exact isolation, interval signs and root correspondence\\
+\bottomrule
+\end{tabularx}
+\caption{What supports each assertion.}
+\end{table}
+
+The original enumeration yielding the list of 375 and the full
+existence classification were not independently repeated. Our
+bound applies exactly to that fixed list and does not by itself
+prove the same assertion for every three-species, six-reaction
+quadratic zero-one network. The 373-network bistability
+classification is outside this independent certification.
+The structural condition was selected after a pilot, and its
+extension beyond the list is unresolved. Degenerate nonlinear
+stability, boundary attractors, periodic orbits, dissipativity
+and biological realization are not asserted. No human peer
+review or Lean formalization has been completed.
+
+\paragraph{Use of AI.}
+Codex and Claude assisted derivations, implementation, verification,
+literature comparison and drafting. Tatsuhiko Takimoto is responsible
+for the manuscript. The assurances are the mathematical arguments
+and exact checks specified above.
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{TZ}
+Xiaoxian Tang and Jiandong Zhang.
+\emph{The Ubiquity of Three Steady States: Minimal Multistable
+Zero-One Reaction Networks}. arXiv:2608.01116v1, 2026.
+\url{https://arxiv.org/abs/2608.01116v1}.
+\bibitem{TF}
+Ang\'elica Torres and Elisenda Feliu.
+\emph{Symbolic proof of bistability in reaction networks}.
+arXiv:1909.13608v2, 2020.
+\url{https://arxiv.org/abs/1909.13608v2}.
+\bibitem{BF}
+Murad Banaji and Elisenda Feliu.
+\emph{Positive equilibria in mass action networks: geometry and bounds}.
+Journal of Mathematical Biology 93, article 37, 2026.
+Accepted manuscript: arXiv:2409.06877v5.
+\url{https://arxiv.org/abs/2409.06877v5}.
+\bibitem{BP}
+Murad Banaji and Casian Pantea.
+\emph{The inheritance of nondegenerate multistationarity in chemical
+reaction networks}. arXiv:1608.08400v3, 2017.
+\url{https://arxiv.org/abs/1608.08400v3}.
+\bibitem{Adata}
+Tatsuhiko Takimoto.
+\emph{Stability certificates for two exceptional reaction networks}.
+Prepared data-and-tools collection, version 1.0.0, 2026.
+Repository name: \texttt{exception-networks-stability-certificates}.
+Provisional reference: release and DOI pending
+(\texttt{A-DOI-PENDING}; replace before publication).
+\end{thebibliography}
+
+\appendix
+\section{Fixed input and certificate index}\label{app:input}
+The upstream input is
+\texttt{results/375\_multistable\_networks.json} in
+\url{https://github.com/zjdong-sudo/paper-multistability-results},
+at revision
+\begin{center}\small
+\path{323360df12c0787f9bbf7f223a6229b98233be39}.
+\end{center}
+Its SHA-256 is
+\begin{center}\small
+\path{517d1f16f890159185f5384fa2ab089ec4d270e03efe31161ed29489121e252c}.
+\end{center}
+The companion packet's \path{manifest.json} records hashes of its
+files. The 375 candidate identifiers occur in both
+\path{certificates/cramer.jsonl} and
+\path{certificates/resultants.json}. Paths are relative to the
+packet root. The latter file combines the independently obtained
+factors and coefficient-sign records, including the three
+equation-transform cases. The \path{certificates/} directory also
+contains the structural table and rational-example certificates.
+Run \path{tools/fetch_input.py} and then \path{verify.py}; the README
+gives the environment and commands. The authors' raw data and code
+are not bundled. The fetch tool obtains the identified input from
+upstream and checks its SHA-256 before use.
+
+This v1 is a local draft. Before public circulation, the certificate
+packet and its inventory need a stable versioned public location;
+no such archive or identifier is asserted here.
+\end{document}

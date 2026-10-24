@@ -1,0 +1,158 @@
+{
+  "status": "EXACT_SEVEN_REACTION_EXCEPTION_WITNESS",
+  "base_candidate": 33449,
+  "added_reaction": {
+    "reactant": [
+      0,
+      0,
+      1
+    ],
+    "product": [
+      0,
+      0,
+      0
+    ]
+  },
+  "parameters_abcdefh": [
+    "109/32768",
+    "235/256",
+    "1/2",
+    "1/2",
+    "1/2",
+    "1/2",
+    "1/65536"
+  ],
+  "sample_provenance": "First six rates: A33449-1 in the earlier two-exception certificate study. Added rate selected from the recorded positive dyadic ladder; this is a fixed witness, not a random sample.",
+  "search_ladder_exponents": [
+    1,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "attempts": [
+    {
+      "h": "1/2",
+      "sturm_positive_admissible_roots": 1,
+      "sympy_count_roots": 1
+    },
+    {
+      "h": "1/16",
+      "sturm_positive_admissible_roots": 1,
+      "sympy_count_roots": 1
+    },
+    {
+      "h": "1/256",
+      "sturm_positive_admissible_roots": 1,
+      "sympy_count_roots": 1
+    },
+    {
+      "h": "1/4096",
+      "sturm_positive_admissible_roots": 1,
+      "sympy_count_roots": 1
+    },
+    {
+      "h": "1/65536",
+      "sturm_positive_admissible_roots": 3,
+      "sympy_count_roots": 3
+    }
+  ],
+  "positive_branch_threshold": "0",
+  "q_coefficients_descending": [
+    "-23871/4294967296",
+    "27797/33554432",
+    "-606065/16777216",
+    "55225/131072"
+  ],
+  "roots": [
+    {
+      "t_interval": [
+        {
+          "numerator": "1186617748",
+          "denominator": "63717463"
+        },
+        {
+          "numerator": "1307453375",
+          "denominator": "70205938"
+        }
+      ],
+      "sturm_roots_in_interval": 1,
+      "multiplicity": 1,
+      "hurwitz_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b1*b2-b3"
+      ],
+      "hurwitz_signs": [
+        1,
+        1,
+        -1,
+        1
+      ],
+      "exponentially_stable": false
+    },
+    {
+      "t_interval": [
+        {
+          "numerator": "1998238606",
+          "denominator": "38640527"
+        },
+        {
+          "numerator": "3149229703",
+          "denominator": "60897580"
+        }
+      ],
+      "sturm_roots_in_interval": 1,
+      "multiplicity": 1,
+      "hurwitz_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b1*b2-b3"
+      ],
+      "hurwitz_signs": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "exponentially_stable": true
+    },
+    {
+      "t_interval": [
+        {
+          "numerator": "6820268592",
+          "denominator": "86644919"
+        },
+        {
+          "numerator": "6713775719",
+          "denominator": "85292030"
+        }
+      ],
+      "sturm_roots_in_interval": 1,
+      "multiplicity": 1,
+      "hurwitz_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b1*b2-b3"
+      ],
+      "hurwitz_signs": [
+        1,
+        1,
+        -1,
+        1
+      ],
+      "exponentially_stable": false
+    }
+  ],
+  "positive_equilibria": 3,
+  "exponentially_stable_positive_equilibria": 1,
+  "raw_input_sha256": "517d1f16f890159185f5384fa2ab089ec4d270e03efe31161ed29489121e252c",
+  "scope": "Exact finite witness plus symbolic family identities. SymPy and a separate Fraction Sturm implementation agree; symbolic Hurwitz functions and direct interval Jacobian agree. Same primary agent, no independent reviewer, no novelty claim."
+}
