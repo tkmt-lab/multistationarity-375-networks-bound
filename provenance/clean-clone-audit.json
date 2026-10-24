@@ -1,0 +1,47 @@
+{
+  "package_commit": "03b1b73e39d3bea3cc9f311c1a3ba17c65cc2033",
+  "fresh_clone": true,
+  "new_venv": true,
+  "input_absent_initially": true,
+  "platform": "darwin",
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "-B",
+        "tools/fetch_input.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.3066968749044463,
+      "cumulative_child_maxrss_bytes": 31391744
+    },
+    {
+      "argv": [
+        "python",
+        "-B",
+        "verify.py",
+        "--stdlib-only"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.18104354199022055,
+      "cumulative_child_maxrss_bytes": 31391744
+    },
+    {
+      "argv": [
+        "python",
+        "-B",
+        "verify.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 14.569261415977962,
+      "cumulative_child_maxrss_bytes": 88276992
+    }
+  ],
+  "optimized_python_rejected": {
+    "exit_code": 1,
+    "message": "Checks require Python assertions; do not use -O or -OO."
+  },
+  "git_clean_after": true,
+  "full_verification_sha256": "f3718cf97e384479968885bc7301973b06691ef32b01fd6b33a4864301093974",
+  "stdlib_verification_sha256": "9dc21a09efdda7c1281b50dbdf1a93d4070871cf37d7ec65320720a9e15e6c04"
+}
