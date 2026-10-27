@@ -55,8 +55,8 @@
     },
     {
       "path": "VERIFICATION-RECORD.md",
-      "bytes": 3923,
-      "sha256": "7b0a6a6eff054c9c54ae182742ca7923aa0283fcab91143a91378d53c8956c4e"
+      "bytes": 6331,
+      "sha256": "14f8e77b0a106c63e0ea6ffdbc0352ce56518c0a72203da4a8d8652bdfa44f7e"
     },
     {
       "path": "certificates/cramer.jsonl",
@@ -162,6 +162,11 @@
       "path": "provenance/paper-qa.json",
       "bytes": 981,
       "sha256": "838cadd3035a9c341bb9f063d73a5b3be012386ed4aaf51fe00af8a7fcbdbaff"
+    },
+    {
+      "path": "provenance/prepublication-2026-10-28.json",
+      "bytes": 3068,
+      "sha256": "514a2dd8626851ac0c7e674b7de4aa29d996a4b464bcd52d57c41eede21aaeaa"
     },
     {
       "path": "provenance/source-files.json",

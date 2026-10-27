@@ -1,7 +1,9 @@
 # Verification record
 
-Local preparation date: 2026-10-24. This record concerns version 1.0.0 of the
-certificate package, before publication.
+Initial local preparation date: 2026-10-24; citation refresh: 2026-10-28. This
+record concerns version 1.0.0 of the certificate package, before publication.
+The original run is preserved below; the later citation refresh and its
+checks are recorded separately.
 
 ## Clean-clone check
 
@@ -47,12 +49,52 @@ changes no checker, certificate or scientific manuscript content.
 
 The full check is deterministic apart from timing and environment metadata;
 it never samples positive rate vectors as a substitute for the symbolic
-identities and coefficient-sign checks. The 7-page PDF was rebuilt with
+identities and coefficient-sign checks. The original 2026-10-24 7-page PDF was rebuilt with
 Tectonic 0.17.0, with no TeX warnings, and all rendered pages were inspected.
-Its source body through the references before Adata is identical to the
-reviewed lab v1. `provenance/paper-qa.json` gives hashes and the edit boundary.
+Its source body through the references before Adata was identical to the
+reviewed lab v1. The current `provenance/paper-qa.json` records the later
+citation-only edit boundary and current source/PDF hashes.
 The repository's writing diagnostic found no advisory issues in README.md;
 that diagnostic does not assess mathematical truth or authorship.
+
+## Citation refresh and clean-clone check, 2026-10-28
+
+The related two-network collection is published as version 1.0.0, version DOI
+10.5281/zenodo.23659209 (all versions: 10.5281/zenodo.23659208). Zenodo record
+23659209 and the GitHub v1.0.0 release were checked directly. These identifiers
+belong to that collection; no DOI is assigned to this 375-network package here.
+README.md, the article's companion-availability sentence and Adata citation,
+and related metadata were updated. Mathematical statements, proofs,
+certificates, checker code and claims.json were unchanged.
+
+The current PDF was rebuilt with Tectonic 0.17.0 without warnings. All seven
+rendered pages were inspected, including the updated reference on page 7;
+no clipping, overlap or unreadable identifiers were found. Its hashes and
+source comparison are in `provenance/paper-qa.json`.
+
+Both the standard-library subset and full verifier passed in the source
+working copy. A fresh `git clone --no-hardlinks` of citation commit
+`5a9a4d311bb9685a43c1e1a7f6f1264b09fa5b86` then started without a work/ directory or
+upstream input. It downloaded and hash-checked the 395599-byte pinned input.
+The existing local Python 3.14.7 virtual environment from the original check
+was reused (SymPy 1.14.0, mpmath 1.3.0); no new environment or installation
+was tested. One command ran at a time with nice 10.
+
+| Command in the fresh clone | Exit | Wall time |
+| --- | --- | --- |
+| `python -B tools/fetch_input.py` | 0 | 0.397 s |
+| `python -B verify.py --stdlib-only` | 0 | 0.177 s |
+| `python -B verify.py` | 0 | 14.523 s |
+| `python -O verify.py` (expected rejection) | 1 | 0.050 s |
+
+The full check again covered both 375-network certificate routes, B1 and B3.
+All six mutation controls were rejected. Git remained clean in the clone.
+`provenance/prepublication-2026-10-28.json` records that exact source commit,
+commands, verdicts, output hashes, timing and environment. Its source commit
+precedes addition of this record and the refreshed manifest; those subsequent
+changes affect documentation and audit metadata only. No hosted CI run, new
+independent-agent review, push, tag or publication is established by these
+local checks.
 
 ## Assurance boundary
 
