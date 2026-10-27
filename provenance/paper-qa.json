@@ -1,9 +1,13 @@
 {
+  "reviewed_utc": "2026-10-27T23:33:17.061806+00:00",
+  "comparison_public_commit": "85d379b93cf05f76b7030b653c667ed72afa1ff6",
   "pdf_pages": 7,
-  "pdf_bytes": 87815,
-  "pdf_sha256": "eb47078fe1ef3ae02b42c99d5db40ad68520724d452eb66d72f88a226c80bd64",
-  "source_sha256": "3879307068e14338bec3664c501336ffc64bf33a3ed6b21f1a765e4fef9b04c2",
-  "scientific_body_identical_before_Adata_bibliography": true,
+  "pdf_bytes": 87984,
+  "pdf_sha256": "7743cc35d2a69d0318bcfaa9c375a508c3138353447fd2e166695a519b13e036",
+  "source_sha256": "37b31d5387eb62954ddaef5fad16facc2f7814a07ba263c35f2b4fc6516c6fc0",
+  "body_identical_except_companion_availability_sentence": true,
+  "appendix_identical_to_previous_public_copy": true,
+  "scientific_claims_and_proofs_unchanged": true,
   "tectonic_version": "0.17.0",
   "tex_warnings": [],
   "rendered_pages_reviewed": [
@@ -17,7 +21,10 @@
   ],
   "visual_issues": [],
   "article_changes": [
-    "appendix paths",
-    "explicit pending A DOI marker"
-  ]
+    "companion publication availability sentence in section 4",
+    "Adata citation: version 1.0.0 and version/all-versions DOIs plus source release"
+  ],
+  "companion_doi": "10.5281/zenodo.23659209",
+  "companion_concept_doi": "10.5281/zenodo.23659208",
+  "current_package_doi": null
 }

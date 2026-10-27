@@ -3,9 +3,13 @@
 The package is derived from the R023 study at research commit
 `6d658ccfa1dd81d383aa808216ff051b73b9a21c` (2026-10-24). The original v1 PDF
 had SHA256 `c8865c8edda87c60a8787a75d60ad2bd503ed1a15dc49c9d17904bd6e158f608`.
-The public copy changes only the appendix's internal paths and adds an explicit
-pending-DOI marker to the Adata reference. It has not undergone a new reader
-review after those packaging edits. The preceding scientific v1 went through
+The public copy changes only the appendix's internal paths and the companion
+publication citation in the text and Adata reference. On 2026-10-28, the
+pending citation was replaced by the published version 1.0.0, DOI
+10.5281/zenodo.23659209 (all versions: 10.5281/zenodo.23659208), of
+*Stability certificates for two exceptional reaction networks*. Those DOIs
+identify the companion collection, not this package. It has not undergone a
+new reader review after those packaging edits. The preceding scientific v1 went through
 three bounded AI reader passes, ending in acceptance; that is not human peer
 review or a mathematical proof.
 

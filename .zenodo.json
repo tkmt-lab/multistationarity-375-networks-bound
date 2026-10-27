@@ -9,7 +9,7 @@
       "affiliation": "Independent researcher"
     }
   ],
-  "description": "Article v1 and exact certificates for at most three distinct positive equilibria, including degenerate equilibria, at all positive rate constants in the fixed 375-network list of Tang and Zhang. Includes 375 Cramer reductions, a second resultant route checked with explicit Sylvester determinants, a post-selected finite structural observation, and one seven-reaction family with a rational witness. The original enumeration, 373/2 classification, exceptional identifiers and Lemma 3 are Tang–Zhang results; the original enumeration and the 373-network stability classification are not reverified here. Upstream raw data are not bundled; their pinned input is fetched and hashed. No priority, proof-assistant assurance or human peer review is claimed. Original prose and derived certificates: CC BY 4.0. Code: Apache 2.0. Companion A citation and publication identifiers are pending.",
+  "description": "Article v1 and exact certificates for at most three distinct positive equilibria, including degenerate equilibria, at all positive rate constants in the fixed 375-network list of Tang and Zhang. Includes 375 Cramer reductions, a second resultant route checked with explicit Sylvester determinants, a post-selected finite structural observation, and one seven-reaction family with a rational witness. The original enumeration, 373/2 classification, exceptional identifiers and Lemma 3 are Tang–Zhang results; the original enumeration and the 373-network stability classification are not reverified here. Upstream raw data are not bundled; their pinned input is fetched and hashed. No priority, proof-assistant assurance or human peer review is claimed. Original prose and derived certificates: CC BY 4.0. Code: Apache 2.0. The related two-network collection is available as version 1.0.0, DOI 10.5281/zenodo.23659209 (all versions: 10.5281/zenodo.23659208). Publication identifiers for this 375-network package are pending.",
   "license": "cc-by-4.0",
   "keywords": [
     "chemical reaction networks",
@@ -18,5 +18,12 @@
     "exact certificates",
     "zero-one networks",
     "multistationarity"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23659209",
+      "relation": "references",
+      "scheme": "doi"
+    }
   ]
 }

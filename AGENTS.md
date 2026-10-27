@@ -16,8 +16,10 @@ independent implementation, and post-comparison package assembly distinct.
 No formal verification, human peer review, priority or new 373-network
 stability certification is established by this repository.
 
-The public repository and DOI have not been created. A-DOI-PENDING marks the
-companion citation to fill in README.md and paper/paper-v1.tex before release.
+This package's public repository and DOI have not been created. The related
+two-network collection is published as version 1.0.0, with version DOI
+10.5281/zenodo.23659209 (all-versions DOI 10.5281/zenodo.23659208), cited in
+README.md and paper/paper-v1.tex. Those identifiers belong to the companion.
 Publication and outside communication require the author's instruction.
 
 After an intentional file change, review the diff, run

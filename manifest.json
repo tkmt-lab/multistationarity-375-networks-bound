@@ -15,13 +15,13 @@
     },
     {
       "path": ".zenodo.json",
-      "bytes": 1425,
-      "sha256": "fb9d6923ba0ba94184d9f501d8ba6ec746609da9471cf7e1fc3e6ee017c6a3a8"
+      "bytes": 1709,
+      "sha256": "2e90d8fc304c3d41da238c48aae68caf3273123a04d7b358b940331679fbd465"
     },
     {
       "path": "AGENTS.md",
-      "bytes": 1514,
-      "sha256": "38787d2221c577ab1b7d1826fa44886d7a093aba991f238de54d980c60f0fb6c"
+      "bytes": 1659,
+      "sha256": "c69ddd8427793cb7713fa4a78c2f036a2bc27e15b53690563c3daa36aeca9f85"
     },
     {
       "path": "Apache-2.0.txt",
@@ -45,13 +45,13 @@
     },
     {
       "path": "PROVENANCE.md",
-      "bytes": 3771,
-      "sha256": "f6ccb2e40614810da9867b0e99e0d59f516e5b9e4d04e18d899d8dc8686960d7"
+      "bytes": 4060,
+      "sha256": "230b102cb47254aa31d67970ce86b6c6e427ad520663f4467a3f61bc1d684a73"
     },
     {
       "path": "README.md",
-      "bytes": 7908,
-      "sha256": "9b64fe2eecc7c96ace1a608285ce8141a3377dc71054f92f9c86576975f36177"
+      "bytes": 8171,
+      "sha256": "5c09b469f16c6ead3f6c5520cd605557615930e82addaf9865cda2828dfcc586"
     },
     {
       "path": "VERIFICATION-RECORD.md",
@@ -135,13 +135,13 @@
     },
     {
       "path": "paper/paper-v1.pdf",
-      "bytes": 87815,
-      "sha256": "eb47078fe1ef3ae02b42c99d5db40ad68520724d452eb66d72f88a226c80bd64"
+      "bytes": 87984,
+      "sha256": "7743cc35d2a69d0318bcfaa9c375a508c3138353447fd2e166695a519b13e036"
     },
     {
       "path": "paper/paper-v1.tex",
-      "bytes": 24695,
-      "sha256": "3879307068e14338bec3664c501336ffc64bf33a3ed6b21f1a765e4fef9b04c2"
+      "bytes": 24746,
+      "sha256": "37b31d5387eb62954ddaef5fad16facc2f7814a07ba263c35f2b4fc6516c6fc0"
     },
     {
       "path": "provenance/clean-clone-audit.json",
@@ -160,13 +160,13 @@
     },
     {
       "path": "provenance/paper-qa.json",
-      "bytes": 524,
-      "sha256": "be8cb161c0ee034d70459b244c2569fb3d2dd63f918ce1454bb80ae336ce0bcf"
+      "bytes": 981,
+      "sha256": "838cadd3035a9c341bb9f063d73a5b3be012386ed4aaf51fe00af8a7fcbdbaff"
     },
     {
       "path": "provenance/source-files.json",
-      "bytes": 3766,
-      "sha256": "57501b9aeffaf45df18f02dcbaeb1f94ac6dca75372a0084dfe017bbffa473a4"
+      "bytes": 4196,
+      "sha256": "bbdd0cedbf36649c1a78f013de63faa62afcc0931420be90b69545b6a5a058df"
     },
     {
       "path": "requirements.txt",

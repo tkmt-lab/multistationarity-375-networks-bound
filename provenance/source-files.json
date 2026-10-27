@@ -78,5 +78,11 @@
       "source_sha256": "e9f8264ef2eac755e490b0ae0d981da8db3782be88e2cce614fddb6ed419d4fe",
       "adaptation": "selected certificate fields or helper; see PROVENANCE.md"
     }
-  ]
+  ],
+  "citation_refresh_2026_10_28": {
+    "comparison_public_commit": "85d379b93cf05f76b7030b653c667ed72afa1ff6",
+    "scope": "Only companion publication availability sentence and Adata citation changed in the already adapted public article; scientific claims, proofs and appendix unchanged. Current source/PDF hashes: paper-qa.json.",
+    "version_doi": "10.5281/zenodo.23659209",
+    "concept_doi": "10.5281/zenodo.23659208"
+  }
 }

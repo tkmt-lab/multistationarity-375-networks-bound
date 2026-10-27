@@ -123,14 +123,18 @@ made. The article credits the relevant reduction and inheritance literature.
 Please cite the article and this exact package version using
 [CITATION.cff](CITATION.cff), and cite Tang and Zhang for the original list and
 classification. The article's scientific body is unchanged from the reviewed
-v1; only the appendix paths and the pending companion citation were edited.
+v1; only the appendix paths and the companion-publication citation were edited.
 
-**A-DOI-PENDING:** Before public release, the coordinator must replace this
-marker and the same marker in `paper/paper-v1.tex`, bibliography entry `Adata`,
-with the final citation for Tatsuhiko Takimoto, *Stability certificates for two
-exceptional reaction networks*, version 1.0.0, prepared repository name
-`exception-networks-stability-certificates`. Rebuild the PDF and manifest after
-that edit. No DOI has been supplied for A or for this package.
+The related collection by Tatsuhiko Takimoto, *Stability certificates for two
+exceptional reaction networks*, version 1.0.0 (2026), gives complete
+positive-branch reductions and exact stability certificates for the two
+exceptional networks 33449 and 239089. Its version DOI is
+[10.5281/zenodo.23659209](https://doi.org/10.5281/zenodo.23659209); the
+[all-versions DOI](https://doi.org/10.5281/zenodo.23659208) is
+10.5281/zenodo.23659208. The source release is
+[`tkmt-lab/exception-networks-stability-certificates` v1.0.0](https://github.com/tkmt-lab/exception-networks-stability-certificates/releases/tag/v1.0.0).
+These identifiers refer to that two-network collection. This 375-network
+package has no DOI yet.
 
 Original prose and derived certificates: CC BY 4.0. Code: Apache 2.0. Full texts
 and the upstream-data exclusion are in [LICENSE](LICENSE).
